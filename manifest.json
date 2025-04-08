@@ -6,6 +6,9 @@
     "permissions": [
       "tabs"
     ],
+    "icons": {
+      "128": "icons/Web3Switcher.png"
+    },
     "action": {
       "default_icon": "icons/Web3Switcher.png",
       "default_popup": "popup.html"

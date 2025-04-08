@@ -1,13 +1,14 @@
 {
     "manifest_version": 3,
     "name": "Web3Switcher",
-    "version": "1.0",
-    "description": "Change the Hive  to your liking",
+    "version": "1.1",
+    "description": "Easily switch between different Hive frontends to enhance your browsing experience.",
     "permissions": [
       "tabs"
     ],
     "icons": {
-      "150": "images/Web3Switcher.png",
+      "150": "images/Web3Switcher.png"
+    },
     "action": {
       "default_icon": {
         "150": "Web3Switcher.png"

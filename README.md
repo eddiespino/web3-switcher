@@ -1,19 +1,21 @@
 ### About
 
-Web3Switcher is a browser extension that allows users to quickly switch between Hive frontends.
+Web3Switcher is a browser extension designed to help users seamlessly switch between different Hive frontends with ease.
 
-It currently works with Chromium-based browsers like Google Chrome and Brave.
+Currently, it supports Chromium-based browsers such as Google Chrome and Brave.
 
 ### Use Case
 
-This extension allows you to quickly switch between frontends. For example, you can change from https://peakd.com/hive-139531/@eddiespino/jvutsqax to https://ecency.com/hive-139531/@eddiespino/jvutsqax or https://hive.blog/hive-139531/@eddiespino/jvutsqax and vice versa with just a couple of clicks.
+Web3Switcher simplifies the process of navigating between Hive frontends. For instance, you can effortlessly switch from [PeakD](https://peakd.com/hive-139531/@eddiespino/jvutsqax) to [Ecency](https://ecency.com/hive-139531/@eddiespino/jvutsqax) or [Hive.blog](https://hive.blog/hive-139531/@eddiespino/jvutsqax) and vice versa, all with just a couple of clicks.
 
-### How to install:
+### Installation Guide
 
-- Download the code as a ZIP file.
-- Extract the ZIP file to a folder on your computer.
-- Open your browser and navigate to the Extensions page (e.g., chrome://extensions/).
-- Enable "Developer mode" in the top-right corner.
-- Click "Load unpacked" and select the extracted folder.
-- (Optional) Pin the extension to your toolbar for quick access.
-- Click on the extension icon to switch to your favorite Hive frontend.
+1. **Download the Extension**: Download the code as a ZIP file.
+2. **Extract the Files**: Unzip the downloaded file to a folder on your computer.
+3. **Open the Extensions Page**: In your browser, navigate to the Extensions page (e.g., `chrome://extensions/`).
+4. **Enable Developer Mode**: Toggle the "Developer mode" switch in the top-right corner of the Extensions page.
+5. **Load the Extension**: Click on "Load unpacked" and select the folder where you extracted the files.
+6. **Optional - Pin the Extension**: Pin the Web3Switcher extension to your browser's toolbar for quick access.
+7. **Start Switching**: Click the extension icon to instantly switch to your preferred Hive frontend.
+
+Enjoy a faster and more convenient way to explore Hive frontends!

@@ -22,4 +22,6 @@ Web3Switcher simplifies the process of navigating between Hive frontends. For in
 
 The Web3Switcher extension is actively being developed to provide a user-friendly interface. The goal is to make switching between Hive frontends as intuitive and seamless as possible. 
 
-<center>https://files.peakd.com/file/peakd-hive/eddiespino/23yTcoYbPHZk8oAjurpJ5M1NuLeFvtG1dgQTJi8YenzZ6D4vSS2ySUEr3v9USKEncLmx6.png</center>
+![UI Web3 Switcher][def]
+
+[def]: images/web3SwitcherUI.png

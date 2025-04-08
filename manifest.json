@@ -1,0 +1,19 @@
+{
+    "manifest_version": 3,
+    "name": "Hive Switch",
+    "version": "1.0",
+    "description": "Change the Hive interace to your liking",
+    "permissions": [
+      "tabs"
+    ],
+    "action": {
+      "default_popup": "popup.html"
+    },
+    "host_permissions": [
+      "*://hive.blog/*",
+      "*://peakd.com/*",
+      "*://ecency.com/*",
+      "*://inleo.io/*"
+    ]
+  }  
+  

@@ -1,0 +1,135 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #1c0053, #414141);
+  color: #f5f5f5;
+  margin: auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden; /* Hide overflow */
+  position: relative; /* Position relative for absolute positioning of elements */
+  flex-direction: column; /* Column layout */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+button p {
+  font-size: 12px;
+  margin-bottom: 5px;
+  text-align: center;
+  color: #f1f1f1; /* White text for better readability */
+  text-shadow: 1px 1px 2px #000000; /* Subtle shadow for better readability */
+  margin-top: 0; /* Remove top margin */
+  margin-bottom: 5px; /* Space between heading and paragraph */
+  padding: 5px; /* Padding around the heading */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+button {
+  background-color: #8B0000; /* Dark Red */
+  border: none;
+  color: white;
+  padding: 10px 20px; /* Smaller padding */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px; /* Smaller font size */
+  margin: 4px;
+  cursor: pointer;
+  border-radius: 8px; /* Rounded corners */
+}
+
+button:hover {
+  background-color: #A52A2A; /* Brown - closer to Dark Red */
+}
+
+button img {
+  width: 50px; /* Smaller icon size */
+  height: 50px; /* Smaller icon size */
+  margin-right: 8px; /* Space between icon and text */
+  vertical-align: middle; /* Align icon with text */
+  transition: transform 0.2s; /* Animation on hover */
+  align-items: center; /* Center the icon vertically */
+  justify-content: center; /* Center the icon horizontally */
+  display: flex; /* Flexbox for centering */
+  margin: 0 auto; /* Center the icon */
+  padding: 5px; /* Padding around the icon */
+  border-radius: 50%; /* Circular icon */
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transition for background color and scale */
+}
+button:active {
+  background-color: #800000; /* Maroon - darker than Dark Red */
+}
+
+#iconPop img:hover {
+  transform: scale(1.1); /* Scale up on hover */
+}
+
+#iconPop {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  gap: 10px; /* Space between buttons */
+  justify-content: center;
+  align-items: center;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+#redirect-peakd {
+  background-color: #5c5c5c; /* Background color for PeakD button */
+  color: #fff; /* White text for better readability */
+}
+
+#redirect-ecency {
+  background-color: #1DA1F2; /* Ecency Blue */
+  color: #ffffff; /* White text for better readability */
+}
+
+#redirect-hiveblog {
+  background-color: #FF0000; /* HiveBlog Red */
+  color: #fff; /* White text for better readability */
+}
+
+#redirect-inleo {
+  background-color: #FFA500; /* InLeo Orange */
+  color: #ffffff; /* White text for better readability */
+}
+
+#redirect-peakd:hover {
+  background-color: #4a4a4a; /* Darker PeakD Dark Gray */
+}
+
+#redirect-ecency:hover {
+  background-color: #1B8CD8; /* Darker Ecency Blue */
+}
+
+#redirect-hiveblog:hover {
+  background-color: #CC0000; /* Darker HiveBlog Red */
+}
+
+#redirect-inleo:hover {
+  background-color: #FF8C00; /* Darker InLeo Orange */
+}
+
+button:active {
+  background-color: #800000; /* Maroon - darker than Dark Red */
+}
+
+#redirect-peakd:active {
+  background-color: #4a4a4a; /* Darker PeakD Dark Gray */
+}
+
+#redirect-ecency:active {
+  background-color: #167ABF; /* Much Darker Ecency Blue for better contrast */
+}
+
+#redirect-hiveblog:active {
+  background-color: #B20000; /* Even Darker HiveBlog Red */
+}
+
+#redirect-inleo:active {
+  background-color: #E67300; /* Darker InLeo Orange for better contrast */
+}

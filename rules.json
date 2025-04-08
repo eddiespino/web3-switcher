@@ -1,0 +1,19 @@
+[{
+  "rules": [
+    {
+      "id": 1,
+      "priority": 1,
+      "action": {
+        "type": "redirect",
+        "redirect": {
+           "regexSubstitution": "https://peakd.com/$1"
+        }
+      },
+      "condition": {
+        "regexFilter": "https://hive.blog/(.*)",
+        "resourceTypes": ["main_frame"]
+      }
+    }
+  ]
+}
+]

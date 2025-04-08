@@ -1,3 +1,7 @@
+![Cover Web3Switcher](dev)
+
+[dev]: images/web3SwitcherCover.png
+
 ### About
 
 Web3Switcher is a browser extension designed to help users seamlessly switch between different Hive frontends with ease.

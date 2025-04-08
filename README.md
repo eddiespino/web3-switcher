@@ -18,4 +18,8 @@ Web3Switcher simplifies the process of navigating between Hive frontends. For in
 6. **Optional - Pin the Extension**: Pin the Web3Switcher extension to your browser's toolbar for quick access.
 7. **Start Switching**: Click the extension icon to instantly switch to your preferred Hive frontend.
 
-Enjoy a faster and more convenient way to explore Hive frontends!
+### User Interface (Work in Progress)
+
+The Web3Switcher extension is actively being developed to provide a user-friendly interface. The goal is to make switching between Hive frontends as intuitive and seamless as possible. 
+
+<center>![image.png](https://files.peakd.com/file/peakd-hive/eddiespino/23yTcoYbPHZk8oAjurpJ5M1NuLeFvtG1dgQTJi8YenzZ6D4vSS2ySUEr3v9USKEncLmx6.png)</center>

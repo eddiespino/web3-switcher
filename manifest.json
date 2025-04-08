@@ -1,12 +1,17 @@
 {
     "manifest_version": 3,
-    "name": "Hive Switch",
+    "name": "Web3Switcher",
     "version": "1.0",
-    "description": "Change the Hive interace to your liking",
+    "description": "Change the Hive  to your liking",
     "permissions": [
       "tabs"
     ],
+    "icons": {
+      "150": "images/Web3Switcher.png",
     "action": {
+      "default_icon": {
+        "150": "Web3Switcher.png"
+    },
       "default_popup": "popup.html"
     },
     "host_permissions": [

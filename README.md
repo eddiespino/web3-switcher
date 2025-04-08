@@ -1,4 +1,4 @@
-![Cover Web3Switcher](dev)
+![Cover Web3Switcher][dev]
 
 [dev]: images/web3SwitcherCover.png
 
@@ -29,3 +29,4 @@ The Web3Switcher extension is actively being developed to provide a user-friendl
 ![UI Web3 Switcher][def]
 
 [def]: images/web3SwitcherUI.png
+[def2]: dev

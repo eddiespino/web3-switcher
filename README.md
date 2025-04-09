@@ -14,13 +14,13 @@ Web3Switcher simplifies the process of navigating between Hive frontends. For in
 
 ### Installation Guide
 
-1. **Download the Extension**: Download the code as a ZIP file.
-2. **Extract the Files**: Unzip the downloaded file to a folder on your computer.
-3. **Open the Extensions Page**: In your browser, navigate to the Extensions page (e.g., `chrome://extensions/`).
-4. **Enable Developer Mode**: Toggle the "Developer mode" switch in the top-right corner of the Extensions page.
-5. **Load the Extension**: Click on "Load unpacked" and select the folder where you extracted the files.
-6. **Optional - Pin the Extension**: Pin the Web3Switcher extension to your browser's toolbar for quick access.
-7. **Start Switching**: Click the extension icon to instantly switch to your preferred Hive frontend.
+1. Download the code as a ZIP file.
+2. Unzip the downloaded file to a folder on your computer.
+3. In your browser, navigate to the Extensions page (e.g., `chrome://extensions/`).
+4. Toggle the "Developer mode" switch in the top-right corner of the Extensions page.
+5. Click on "Load unpacked" and select the folder where you extracted the files.
+6. Pin the Web3Switcher extension to your browser's toolbar for quick access.
+7. Click the extension icon to instantly switch to your preferred Hive frontend.
 
 ### User Interface (Work in Progress)
 

@@ -115,21 +115,21 @@ button:active {
 }
 
 button:active {
-  background-color: #800000; /* Maroon - darker than Dark Red */
+  background-color: #800000; /* Default active state */
 }
 
 #redirect-peakd:active {
-  background-color: #4a4a4a; /* Darker PeakD Dark Gray */
+  background-color: #4a4a4a;
 }
 
 #redirect-ecency:active {
-  background-color: #167ABF; /* Much Darker Ecency Blue for better contrast */
+  background-color: #167ABF;
 }
 
 #redirect-hiveblog:active {
-  background-color: #B20000; /* Even Darker HiveBlog Red */
+  background-color: #B20000;
 }
 
 #redirect-inleo:active {
-  background-color: #E67300; /* Darker InLeo Orange for better contrast */
+  background-color: #E67300;
 }

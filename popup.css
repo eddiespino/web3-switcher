@@ -47,18 +47,16 @@ button:hover {
 }
 
 button img {
-  width: 50px; /* Smaller icon size */
-  height: 50px; /* Smaller icon size */
-  margin-right: 8px; /* Space between icon and text */
-  vertical-align: middle; /* Align icon with text */
-  transition: transform 0.2s; /* Animation on hover */
-  align-items: center; /* Center the icon vertically */
-  justify-content: center; /* Center the icon horizontally */
-  display: flex; /* Flexbox for centering */
-  margin: 0 auto; /* Center the icon */
-  padding: 5px; /* Padding around the icon */
-  border-radius: 50%; /* Circular icon */
-  transition: background-color 0.3s, transform 0.2s; /* Smooth transition for background color and scale */
+  width: 50px;
+  height: 50px;
+  vertical-align: middle;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin: 0 auto;
+  padding: 5px;
+  border-radius: 50%;
+  transition: background-color 0.3s, transform 0.2s;
 }
 button:active {
   background-color: #800000; /* Maroon - darker than Dark Red */

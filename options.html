@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Web3Switcher — Options</title>
+    <link rel="stylesheet" href="styles/shared.css" />
+    <link rel="stylesheet" href="styles/options.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Web3Switcher — Options</h1>
+
+      <section class="section">
+        <h2 class="small muted" style="margin:0 0 8px">Frontends</h2>
+        <div id="frontends"></div>
+
+        <div class="add-grid">
+          <input id="label" class="input" type="text" placeholder="Label e.g. PeakD" />
+          <input id="host"  class="input" type="text" placeholder="Host e.g. peakd.com" />
+          <button id="add" class="btn">Add</button>
+          <button id="restore" class="btn">Restore defaults</button>
+        </div>
+
+        <div id="msg" class="small muted" style="margin-top:8px"></div>
+      </section>
+
+      <section class="section">
+        <h2 class="small muted" style="margin:0 0 8px">Behavior</h2>
+        <div class="behavior">
+          <label>
+            <input id="openInNewTab" type="checkbox" />
+            <span>Open in new tab</span>
+          </label>
+
+          <div>
+            <div class="small muted" style="margin-bottom:6px;">Auto-redirect to Default</div>
+            <!-- Segment control: keep your existing radios -->
+            <div class="segment">
+              <input type="radio" id="redir-off"    name="redir" value="off"    />
+              <label for="redir-off">off</label>
+
+              <input type="radio" id="redir-ask"    name="redir" value="ask"    />
+              <label for="redir-ask">ask</label>
+
+              <input type="radio" id="redir-always" name="redir" value="always" />
+              <label for="redir-always">always</label>
+            </div>
+            <div class="tip small" style="margin-top:6px;">
+              off: never redirect · ask: prompt on each tab · always: redirect immediately
+            </div>
+          </div>
+        </div>
+
+        <div class="tip small" style="margin-top:10px;">
+          Tip: the order above controls keyboard shortcuts (Alt+1/2/3) and the Cycle command.
+        </div>
+      </section>
+    </div>
+
+    <script src="options.js" defer></script>
+  </body>
+</html>

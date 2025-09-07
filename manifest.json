@@ -1,23 +1,42 @@
 {
-    "manifest_version": 3,
-    "name": "Web3Switcher",
-    "version": "1.2",
-    "description": "Easily switch between different Hive frontends to enhance your browsing experience.",
-    "permissions": [
-      "tabs"
-    ],
-    "icons": {
-      "128": "icons/Web3Switcher.png"
-    },
-    "action": {
-      "default_icon": "icons/Web3Switcher.png",
-      "default_popup": "popup.html"
-    },
-    "host_permissions": [
-      "*://hive.blog/*",
-      "*://peakd.com/*",
-      "*://ecency.com/*",
-      "*://inleo.io/*"
-    ]
-}  
-  
+  "manifest_version": 3,
+  "name": "Web3Switcher",
+  "version": "1.4.2",
+  "description": "Easily switch between Hive frontends.",
+  "icons": { "128": "icons/Web3Switcher.png" },
+
+  "action": { "default_title": "Web3Switcher", "default_popup": "popup.html" },
+
+  "background": { "service_worker": "background.js", "type": "module" },
+
+  "options_ui": { "page": "options.html", "open_in_tab": true },
+
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "storage",
+    "contextMenus",
+    "clipboardWrite",
+    "offscreen",
+    "webNavigation",
+    "scripting"
+  ],
+
+  "host_permissions": [
+    "*://peakd.com/*",
+    "*://www.peakd.com/*",
+    "*://ecency.com/*",
+    "*://www.ecency.com/*",
+    "*://hive.blog/*",
+    "*://www.hive.blog/*",
+    "*://inleo.io/*",
+    "*://www.inleo.io/*"
+  ],
+
+  "commands": {
+    "switch-to-1": { "suggested_key": { "default": "Alt+1" }, "description": "Switch to first frontend" },
+    "switch-to-2": { "suggested_key": { "default": "Alt+2" }, "description": "Switch to second frontend" },
+    "switch-to-3": { "suggested_key": { "default": "Alt+3" }, "description": "Switch to third frontend" },
+    "cycle-frontend": { "suggested_key": { "default": "Alt+Shift+X" }, "description": "Cycle the current tab to the next frontend" }
+  }
+}

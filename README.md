@@ -2,10 +2,6 @@
 
 [dev]: images/web3SwitcherCover.png
 
-Here’s a complete, drop-in **`README.md`** you can paste into your repo.
-
----
-
 # Web3Switcher
 
 Switch any Hive post or page between popular frontends (PeakD, Ecency, Hive.blog, Inleo) in one click. Clean popup, smart context menus, keyboard shortcuts, and an optional **default frontend** with **auto-redirect** (ask/always).

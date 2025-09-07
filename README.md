@@ -2,31 +2,165 @@
 
 [dev]: images/web3SwitcherCover.png
 
-### About
+Here’s a complete, drop-in **`README.md`** you can paste into your repo.
 
-Web3Switcher is a browser extension designed to help users seamlessly switch between different Hive frontends with ease.
+---
 
-Currently, it supports Chromium-based browsers such as Google Chrome and Brave.
+# Web3Switcher
 
-### Use Case
+Switch any Hive post or page between popular frontends (PeakD, Ecency, Hive.blog, Inleo) in one click. Clean popup, smart context menus, keyboard shortcuts, and an optional **default frontend** with **auto-redirect** (ask/always).
 
-Web3Switcher simplifies the process of navigating between Hive frontends. For instance, you can effortlessly switch from [PeakD](https://peakd.com/hive-139531/@eddiespino/jvutsqax) to [Ecency](https://ecency.com/hive-139531/@eddiespino/jvutsqax) or [Hive.blog](https://hive.blog/hive-139531/@eddiespino/jvutsqax) and vice versa, all with just a couple of clicks.
+> Built by @eddiespino from the Aliento Project.
 
-### Installation Guide
+---
 
-1. Download the code as a ZIP file.
-2. Unzip the downloaded file to a folder on your computer.
-3. In your browser, navigate to the Extensions page (e.g., `chrome://extensions/`).
-4. Toggle the "Developer mode" switch in the top-right corner of the Extensions page.
-5. Click on "Load unpacked" and select the folder where you extracted the files.
-6. Pin the Web3Switcher extension to your browser's toolbar for quick access.
-7. Click the extension icon to instantly switch to your preferred Hive frontend.
+## ✨ Features
 
-### User Interface (Work in Progress)
+* **Popup switcher** with brand cards & logos
+  Open the current page in PeakD / Ecency / Hive.blog / Inleo.
+* **Context menus** (right-click)
 
-The Web3Switcher extension is actively being developed to provide a user-friendly interface. The goal is to make switching between Hive frontends as intuitive and seamless as possible. 
+  * *Open in…* (link or page)
+  * *Copy as…* (convert URL and copy to clipboard)
+  * *Switch to next frontend* (cycles through your list)
+* **Keyboard shortcuts**
 
-![UI Web3 Switcher][def]
+  * `Alt+1` / `Alt+2` / `Alt+3` → switch to the 1st / 2nd / 3rd frontend
+  * `Alt+Shift+X` → cycle to the next frontend
 
-[def]: images/web3SwitcherUI.png
-[def2]: dev
+  > Shortcuts are configurable at `chrome://extensions/shortcuts`.
+* **Options page**
+
+  * Add / remove / reorder frontends
+  * Choose a **Default frontend** (⭐)
+  * Choose behavior for **Auto-redirect to Default**:
+
+    * **off**: never redirect
+    * **ask**: show an **in-page modal** asking to switch (with “Stay / New tab / Switch”)
+    * **always**: redirect immediately
+  * “Open in new tab” toggle for popups/context menus/shortcuts
+* **“Copy as…”** uses an **offscreen page** for reliable clipboard write
+* **Toolbar badge** shows an initial (`P` / `E` / `H` / `L`) for the current frontend
+* **Syncs settings** via `chrome.storage.sync` (works across your Chrome profiles)
+
+---
+
+## 🖼 Supported frontends (defaults)
+
+* PeakD — `peakd.com`
+* Ecency — `ecency.com`
+* Hive.blog — `hive.blog`
+* Inleo — `inleo.io`
+
+You can add more (or remove any) from **Options → Frontends**.
+
+---
+
+## 🔧 Install (from source)
+
+1. Clone or download this repo.
+2. Open **Chrome** → `chrome://extensions`.
+3. Enable **Developer mode** (top-right).
+4. Click **Load unpacked** → select the project folder (where `manifest.json` lives).
+
+> Works on Chromium-based browsers (Chrome, Brave, Edge).
+
+---
+
+## 📁 Project structure
+
+```
+.
+├─ manifest.json
+├─ background.js
+├─ popup.html / popup.js
+├─ options.html / options.js
+├─ ask_overlay.js             # in-page modal for “ask” mode
+├─ offscreen.html / offscreen.js
+├─ styles/
+│  ├─ shared.css
+│  ├─ popup.css
+│  └─ options.css
+├─ images/                    # logos used in popup
+└─ icons/                     # extension icons
+```
+
+---
+
+## 🔐 Permissions (why they’re needed)
+
+* `tabs`, `activeTab` — read current tab URL & update it
+* `contextMenus` — show the “Open in…” / “Copy as…” menus
+* `storage` — save your frontends & settings
+* `clipboardWrite`, `offscreen` — copy converted URLs reliably
+* `scripting`, `webNavigation` — inject the **ask** modal and detect navigation
+* **Host permissions** for frontends (peakd/ecency/hive.blog/inleo) to convert URLs
+
+**Privacy:** no analytics, no network calls, no data collection. All data stays in your browser.
+
+---
+
+## 🧭 Usage tips
+
+* Reorder items in **Options** — order controls:
+
+  * the **Alt+1/2/3** shortcuts
+  * the **Cycle** command
+* Set your **Default frontend** (⭐) to enable **Auto-redirect** modes.
+* The **ask** modal appears **only** on a non-default frontend.
+  On pages Chrome can’t script (e.g., PDFs, `chrome://`), a small fallback window asks instead.
+
+---
+
+## 🧪 Build a ZIP (for sharing or the Chrome Web Store)
+
+**macOS/Linux**
+
+```bash
+zip -r web3switcher-v1.5.0.zip \
+  manifest.json background.js popup.html popup.js options.html options.js ask_overlay.js \
+  offscreen.html offscreen.js \
+  styles images icons
+```
+
+**Windows (PowerShell)**
+
+```powershell
+Compress-Archive -Path manifest.json, background.js, popup.html, popup.js, options.html, options.js, ask_overlay.js, offscreen.html, offscreen.js, styles, images, icons -DestinationPath web3switcher-v1.5.0.zip
+```
+
+---
+
+## 🚀 Releasing
+
+1. Bump the version in `manifest.json`.
+2. Commit, tag, and push:
+
+   ```bash
+   git add manifest.json
+   git commit -m "chore: bump version to 1.5.0"
+   git tag -a v1.5.0 -m "Web3Switcher v1.5.0"
+   git push && git push origin v1.5.0
+   ```
+3. On GitHub → **Releases** → Draft a new release → pick tag → attach the ZIP → Publish.
+
+---
+
+## 🐞 Troubleshooting
+
+* **Buttons disabled in popup:** open a page on a supported frontend first (PeakD/Ecency/Hive.blog/Inleo).
+* **Ask modal doesn’t show:** ensure **Auto-redirect = ask** and a **Default** is set. On non-scriptable pages a small confirmation window is used.
+* **Context menu duplicates:** fixed with serialized rebuild; if you ever see it, reload the extension.
+
+---
+
+## 📜 License
+
+MIT — see [LICENSE](LICENSE).
+
+---
+
+## 🙌 Credits
+
+Made with ❤️ by **eddiespino** from The Aliento Project.
+Logos belong to their respective projects.

@@ -1,28 +1,46 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <title>Redirect to Hive Ecosystem Platforms</title>
-    <link rel="stylesheet" href="popup.css">
+    <meta charset="UTF-8" />
+    <title>Web3Switcher</title>
+    <link rel="stylesheet" href="styles/shared.css" />
+    <link rel="stylesheet" href="styles/popup.css" />
   </head>
   <body>
-    <p><b>Click on an icon below to visit your preferred frontend:</b></p>
-    <button id="redirect-ecency" aria-label="Redirect to Ecency">
-      <img class="iconPop" src="images/ecencylogo.png" alt="Ecency Icon" loading="lazy">
-      <p>Ecency.com</p>
-    </button>
-    <button id="redirect-peakd" aria-label="Redirect to PeakD">
-      <img class="iconPop" src="images/peakdlogo.png" alt="PeakD Icon" loading="lazy">
-      <p>PeakD.com</p>
-    </button>
-    <button id="redirect-hiveblog" aria-label="Redirect to Hive.Blog">
-      <img class="iconPop" src="images/hivebloglogo.png" alt="Hive.Blog Icon" loading="lazy">
-      <p>Hive.Blog</p>
-    </button>
-    <button id="redirect-inleo" aria-label="Redirect to inLeo">
-      <img class="iconPop" src="images/inelologo.png" alt="inLeo Icon" loading="lazy">
-      <p>inLEO.io</p>
-    </button>
+    <main class="popup">
+      <header class="header">
+        <h1>Web3Switcher</h1>
+        <!-- Only one Open Options entry (top-right) -->
+        <a id="openOptions" class="gear" title="Open Options" aria-label="Open Options">⚙︎</a>
+      </header>
+
+      <p class="lead muted small">Open the current page in another frontend:</p>
+
+      <div class="grid">
+        <button id="redirect-peakd" class="card-btn peakd" aria-label="Open in PeakD">
+          <img class="logo" src="images/peakdlogo.png" alt="PeakD" decoding="async" />
+          <span>PeakD</span>
+        </button>
+
+        <button id="redirect-ecency" class="card-btn ecency" aria-label="Open in Ecency">
+          <img class="logo" src="images/ecencylogo.png" alt="Ecency" decoding="async" />
+          <span>Ecency</span>
+        </button>
+
+        <button id="redirect-hiveblog" class="card-btn hive" aria-label="Open in Hive.blog">
+          <img class="logo" src="images/hivebloglogo.png" alt="Hive.blog" decoding="async" />
+          <span>Hive.blog</span>
+        </button>
+
+        <button id="redirect-inleo" class="card-btn inleo" aria-label="Open in Inleo">
+          <img class="logo" src="images/inelologo.png" alt="Inleo" decoding="async" />
+          <span>Inleo</span>
+        </button>
+      </div>
+
+      <p id="msg" class="msg small"></p>
+    </main>
+
     <script src="popup.js" defer></script>
   </body>
 </html>

@@ -1,58 +1,110 @@
-let peakdButton = document.getElementById('redirect-peakd');
-let ecencyButton = document.getElementById('redirect-ecency');
-let hiveButton = document.getElementById('redirect-hiveblog');
-let inleoButton = document.getElementById('redirect-inleo');
+// =====================
+// Web3Switcher - popup
+// =====================
 
-if (peakdButton) {
-  peakdButton.addEventListener('click', () => handleRedirect('peakd.com', 'https'));
+const DEFAULT_FRONTENDS = [
+  { label: "PeakD",     host: "peakd.com"   },
+  { label: "Ecency",    host: "ecency.com"  },
+  { label: "Hive.blog", host: "hive.blog"   },
+  { label: "Inleo",     host: "inleo.io"    }
+];
+
+// ---- storage helpers ----
+function getFrontends() {
+  return new Promise(resolve =>
+    chrome.storage.sync.get({ frontends: DEFAULT_FRONTENDS }, r => resolve(r.frontends))
+  );
+}
+const DEFAULT_PREFS = { defaultFrontend: null };
+function getDefaultFrontend() {
+  return new Promise(resolve =>
+    chrome.storage.sync.get(DEFAULT_PREFS, r => resolve(r.defaultFrontend))
+  );
 }
 
-if (ecencyButton) {
-  ecencyButton.addEventListener('click', () => handleRedirect('ecency.com', 'https'));
+// ---- utils ----
+function sanitizeHost(h) {
+  return String(h).trim().toLowerCase()
+    .replace(/^https?:\/\//, "")
+    .replace(/^www\./, "")
+    .replace(/\/.*/, "");
+}
+function convertUrl(originalUrl, targetHost) {
+  try { const u = new URL(originalUrl); u.hostname = targetHost; return u.toString(); }
+  catch { return null; }
+}
+function showMsg(text) {
+  const el = document.getElementById("msg");
+  if (el) el.textContent = text || "";
 }
 
-if (hiveButton) {
-  hiveButton.addEventListener('click', () => handleRedirect('hive.blog', 'https'));
+// Map static popup buttons → hosts (must match popup.html IDs)
+const BUTTON_MAP = {
+  "redirect-peakd":    "peakd.com",
+  "redirect-ecency":   "ecency.com",
+  "redirect-hiveblog": "hive.blog",
+  "redirect-inleo":    "inleo.io"
+};
+
+async function updateButtonStates() {
+  const frontends = await getFrontends();
+  const supported = new Set(frontends.map(f => sanitizeHost(f.host)));
+
+  const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  const currentUrl = tab?.url || "";
+  let currentHost = "";
+  try { currentHost = sanitizeHost(new URL(currentUrl).hostname); } catch {}
+
+  const isOnSupportedPage = supported.has(currentHost);
+
+  for (const [btnId, host] of Object.entries(BUTTON_MAP)) {
+    const btn = document.getElementById(btnId);
+    if (!btn) continue;
+    const hostKey = sanitizeHost(host);
+    btn.disabled = !isOnSupportedPage || currentHost === hostKey || !supported.has(hostKey);
+  }
+
+  showMsg(isOnSupportedPage ? "" : "Open a Hive page to enable buttons.");
 }
 
-if (inleoButton) {
-  inleoButton.addEventListener('click', () => handleRedirect('inleo.io', 'https'));
+async function bindStaticButtons() {
+  for (const [btnId, host] of Object.entries(BUTTON_MAP)) {
+    const btn = document.getElementById(btnId);
+    if (!btn) continue;
+    btn.addEventListener("click", async () => {
+      const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+      const target = convertUrl(tab?.url || "", host);
+      if (target) { await chrome.tabs.update(tab.id, { url: target }); window.close(); }
+    });
+  }
 }
 
-/*
- * Checks if the given hostname belongs to a supported domain.
- */
-function isSupportedDomain(hostname) {
-  return ['hive.blog', 'peakd.com', 'ecency.com', 'inleo.io'].includes(hostname);
-}
+async function init() {
+  const openOptions = document.getElementById("openOptions");
+  const openDefault = document.getElementById("openDefault");
 
-function handleRedirect(domain, protocol = 'https') {
-  /*
-   * Redirects the active tab to the specified domain.
-   * If the current URL matches certain domains, it replaces the hostname.
-   * For invalid URLs or mismatched domains, it navigates to the domain's homepage.
-   */
-  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-    if (!tabs[0]) {
-      console.error('No active tab found.');
-      return; // Exit the function if no active tab is found.
-    }
-    let currentTab = tabs[0];
-    try {
-      let url = new URL(currentTab.url);
-      // Check if the URL is valid and belongs to a supported domain.
-      if (isSupportedDomain(url.hostname)) {
-        // Replace the domain with the given domain.
-        url.hostname = domain;
-        chrome.tabs.update(currentTab.id, { url: url.href });
-      } else {
-        // If the URL is valid but not a supported domain, navigate to the given domain's homepage.
-        chrome.tabs.update(currentTab.id, { url: `${protocol}://${domain}` });
-      }
-    } catch (e) {
-      // If the URL is invalid, navigate to the given domain's homepage.
-      chrome.tabs.update(currentTab.id, { url: `${protocol}://${domain}` });
-    }
+  openOptions?.addEventListener("click", (e) => { e.preventDefault(); chrome.runtime.openOptionsPage(); });
+
+  openDefault?.addEventListener("click", async (e) => {
+    e.preventDefault();
+    const defaultHost = await getDefaultFrontend();
+    const list = await getFrontends();
+    const targetHost = defaultHost || list[0]?.host;
+    if (!targetHost) return;
+
+    const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+    const target = tab?.url ? convertUrl(tab.url, targetHost) : null;
+    if (target) { await chrome.tabs.update(tab.id, { url: target }); window.close(); }
   });
+
+  // Live refresh on storage change (frontends/default)
+  chrome.storage.onChanged.addListener((changes, area) => {
+    if (area !== "sync") return;
+    if (changes.frontends || changes.defaultFrontend) updateButtonStates();
+  });
+
+  await bindStaticButtons();
+  await updateButtonStates();
 }
 
+init();

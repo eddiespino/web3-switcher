@@ -1,0 +1,87 @@
+/* === Web3Switcher — Options === */
+body{ background: var(--panel); }
+.wrap{
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 22px;
+}
+h1{
+  margin: 0 0 12px;
+  font-size: 20px;
+}
+.section{
+  margin-top: 18px;
+  padding: 14px;
+  border-radius: var(--radius);
+  background: var(--card);
+  border: 1px solid rgba(255,255,255,.06);
+}
+
+/* Frontend rows built by options.js */
+#frontends .row{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px dashed rgba(255,255,255,.06);
+}
+#frontends .row:last-child{ border-bottom: 0; }
+#frontends .grow{ flex: 1; }
+#frontends .star{ color: #fbbf24; margin-left: 6px; }
+
+/* Buttons in rows (★ ↑ ↓ Delete) */
+#frontends .row button{
+  height: 32px; min-width: 32px;
+  padding: 0 .6rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: #0f172a;
+  color: var(--text);
+  cursor: pointer;
+  transition: background .15s ease, transform .12s ease;
+}
+#frontends .row button:hover{ background: #0d1527; transform: translateY(-1px); }
+#frontends .row button:active{ transform: translateY(0); }
+#frontends .row button:last-child{ /* Delete button */
+  min-width: 72px;
+  background: #111827;
+}
+#frontends .row button:last-child:hover{ background: #0e1424; }
+
+/* Add new frontend controls */
+.add-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr auto auto;
+  gap: 8px;
+  margin-top: 10px;
+}
+.add-grid .input{ background: #0e172b; }
+
+/* Behavior section */
+.behavior{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+.segment{
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.segment label{
+  padding: .45rem .7rem;
+  cursor: pointer;
+  user-select: none;
+  background: #0f172a;
+  border-right: 1px solid rgba(255,255,255,.08);
+}
+.segment label:last-child{ border-right: 0; }
+.segment input{ display: none; }
+.segment input:checked + label{
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+.tip{ color: var(--muted); }
